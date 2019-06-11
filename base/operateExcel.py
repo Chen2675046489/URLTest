@@ -30,3 +30,4 @@ class OperateExcel:
     def get_cell_value(self, row, col):
         """获取单元格的内容"""
         return self.data.cell_value(row, col)
+

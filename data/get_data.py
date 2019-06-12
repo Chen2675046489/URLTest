@@ -68,3 +68,9 @@ class GetData:
             return None
         else:
             expect
+
+
+if __name__ == '__main__':
+    get_data = GetData()
+    a = get_data.get_data_for_json(2)
+    print(a)

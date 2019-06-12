@@ -17,57 +17,57 @@ class global_var:
 
 def get_id():
     """返回id"""
-    return global_var.id
+    return int(global_var.id)
 
 
 def get_url():
     """返回url"""
-    return global_var.url
+    return int(global_var.url)
 
 
 def get_run():
     """返回是否运行"""
-    return global_var.run
+    return int(global_var.run)
 
 
 def get_request_way():
     """返回请求方式"""
-    return global_var.request_way
+    return int(global_var.request_way)
 
 
 def get_header():
     """返回请求头"""
-    return global_var.header
+    return int(global_var.header)
 
 
 def get_case_depend():
     """返回依赖ID"""
-    return global_var.case_depend
+    return int(global_var.case_depend)
 
 
 def get_data_depend():
     """返回依赖数据"""
-    return global_var.data_depend
+    return int(global_var.data_depend)
 
 
 def get_field_depend():
     """返回依赖所属字段"""
-    return global_var.field_depend
+    return int(global_var.field_depend)
 
 
 def get_data():
     """返回请求数据"""
-    return global_var.data
+    return int(global_var.data)
 
 
 def get_expect():
     """返回预期判断"""
-    return global_var.expect
+    return int(global_var.expect)
 
 
 def get_result():
     """返回实际结果"""
-    return global_var.result
+    return int(global_var.result)
 
 
 def get_header_var():

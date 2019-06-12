@@ -12,6 +12,8 @@ class OperateExcel:
             self.data = self.get_data()
         else:
             self.file_name = r'../接口用例.xlsx'
+            self.sheet_id = 0
+        self.data = self.get_data()
 
     # 获取sheet的内容
     def get_data(self):
@@ -24,10 +26,16 @@ class OperateExcel:
     def get_lines(self):
         """获取单元格的行数"""
         tables = self.data
-        return tables
+        return tables.nrows
 
     # 获取单元格的内容
     def get_cell_value(self, row, col):
         """获取单元格的内容"""
         return self.data.cell_value(row, col)
+
+
+if __name__ == '__main__':
+    opear_excel = OperateExcel()
+    a = opear_excel.get_cell_value(1, 8)
+    print(a)
 

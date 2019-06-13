@@ -1,4 +1,5 @@
 import xlrd
+from xlutils.copy import copy
 
 
 class OperateExcel:
@@ -11,7 +12,7 @@ class OperateExcel:
             self.sheet_id = sheet_id
             self.data = self.get_data()
         else:
-            self.file_name = r'../接口用例.xlsx'
+            self.file_name = r'../接口用例.xls'
             self.sheet_id = 0
         self.data = self.get_data()
 
@@ -32,6 +33,18 @@ class OperateExcel:
     def get_cell_value(self, row, col):
         """获取单元格的内容"""
         return self.data.cell_value(row, col)
+
+    # 写入数据
+    def write_value(self, row, col, value):
+        """
+        写入测试结果数据
+        row, col, value
+        """
+        read_data = xlrd.open_workbook(self.file_name)
+        write_data = copy(read_data)
+        sheet_data = write_data.get_sheet(0)
+        sheet_data.write(row, col, value)
+        write_data.save(self.file_name)
 
 
 if __name__ == '__main__':

@@ -28,11 +28,11 @@ class RunTest:
                 res = self.run_method.run_main(method, url, data, header)
                 print(res)
                 if self.com_util.is_contain(expect, res):
-                    print("测试通过")
+                    self.data.write_result(i, "测试通过")
                 else:
-                    print("测试失败")
+                    self.data.write_result(i, "测试失败")
 
 
 if __name__ == '__main__':
     run = RunTest()
-    print(run.go_on_run())
+    run.go_on_run()

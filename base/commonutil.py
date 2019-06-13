@@ -6,9 +6,6 @@ class CommonUtil:
         str_one:查找我的字符串
         str_two:被查找的字符串
         """
-        if isinstance(str_one, ):
-            str_one = str_one.encode('unicode-escape').decode('str_eacape')
-
         flag = None
         if str_one in str_two:
             flag = True

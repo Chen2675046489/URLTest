@@ -64,13 +64,18 @@ class GetData:
         """获取预期结果"""
         col = data_config.get_expect()
         expect = self.opera_excel.get_cell_value(row, col)
-        if expect == '':
+        if expect == "":
             return None
         else:
-            expect
+            return expect
+
+    def write_result(self, row, value):
+        """获取实际结果位置"""
+        col = data_config.get_result()
+        self.opera_excel.write_value(row, col, value)
 
 
 if __name__ == '__main__':
     get_data = GetData()
-    a = get_data.get_data_for_json(2)
+    a = get_data.get_expcet_data(2)
     print(a)

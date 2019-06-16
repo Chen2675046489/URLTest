@@ -1,7 +1,7 @@
 from base.operateExcel import OperateExcel
 from base.operateJson import OpeerateJson
 from data import data_config
-
+from conteng_db.contentMysql import OperationMysql
 
 class GetData:
 
@@ -74,8 +74,44 @@ class GetData:
         col = data_config.get_result()
         self.opera_excel.write_value(row, col, value)
 
+    def get_denpent_key(self, row):
+        """获取依赖数据的单元格内容"""
+        col = data_config.get_data_depend()
+        depent_key = self.opera_excel.get_cell_value(row, col)
+        if depent_key == "":
+            return None
+        else:
+            return depent_key
+
+    # 判断是否有case依赖
+    def is_denpent(self, row):
+        """判断是否有case依赖"""
+        col = data_config.get_case_depend()
+        depend_case_id = self.opera_excel.get_cell_value(row, col)
+        if depend_case_id == "":
+            return None
+        else:
+            return depend_case_id
+
+    # 获取数据依赖字段
+    def get_depend_field(self, row):
+        """获取数据依赖字段"""
+        col = data_config.get_field_depend()
+        data = self.opera_excel.get_cell_value(row, col)
+        if data == "":
+            return None
+        else:
+            return data
+
+    # 通过sql语句查询数据库内容
+    def get_expcet_data_for_mysql(self, row):
+        op_mysql = OperationMysql()
+        sql = self.get_expcet_data(row)
+        res = op_mysql.search_one(sql)
+        return res
+
 
 if __name__ == '__main__':
     get_data = GetData()
-    a = get_data.get_expcet_data(2)
+    a = get_data.get_denpent_key(11)
     print(a)

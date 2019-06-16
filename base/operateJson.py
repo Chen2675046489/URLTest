@@ -8,7 +8,7 @@ class OpeerateJson:
 
     def read_data(self):
         """打开json文件"""
-        with open('../login.json', mode='r', encoding='utf-8') as fp:
+        with open('../user.json', mode='r', encoding='utf-8') as fp:
             data = json.load(fp)
         return data
 

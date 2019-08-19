@@ -1,6 +1,7 @@
 import pymysql.cursors
 import json
 
+
 class OperationMysql:
 
     def __init__(self):
